@@ -200,6 +200,8 @@ class CiscoXr(CiscoBaseConnection):
                         output += self.send_command_timing(marker_value, strip_prompt=False, strip_command=False,
                                                                delay_factor=delay_factor)
                         return output
+                    else:
+                        raise err
                 elif alt_error_marker in output:
                     # Other commits occurred, don't proceed with commit
                     output += self.send_command_timing("no", strip_prompt=False, strip_command=False,
